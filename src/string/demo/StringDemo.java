@@ -4,6 +4,7 @@ public class StringDemo {
 
 	/**
 	 * @param args
+	 * String类-常见功能
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -11,9 +12,37 @@ public class StringDemo {
 		
 
 		/*stringDemo1();
-		stringDemo2();*/
+		stringDemo2();
 		stringDemo3();
+		stringDemo4();*/
+		stringDemo5();
 
+	}
+
+
+	private static void stringDemo5() {
+		System.out.println("常用对象API-String类-常见功能-转换");
+		String s = "张三,李四,王五";
+		String[] arr = s.split(",");
+		for(int i = 0; i<arr.length; i++)
+		{
+			System.out.println(arr[i]);
+		}
+		char[] cha = s.toCharArray();
+		for(int i = 0; i<cha.length; i++)
+		{
+			System.out.println(cha[i]);
+		}		
+		System.out.println("Abc".toLowerCase());
+		System.out.println("Abc".replace('A','Z'));
+		System.out.println(String.valueOf(4)+1);
+	}
+
+
+	private static void stringDemo4() {
+		System.out.println("常用对象API-String类-常见功能-获取2");
+		String s = "abcdae";
+		System.out.println("截取："+ s.substring(2,4));
 	}
 
 
