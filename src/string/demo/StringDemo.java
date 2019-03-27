@@ -14,10 +14,37 @@ public class StringDemo {
 		/*stringDemo1();
 		stringDemo2();
 		stringDemo3();
-		stringDemo4();*/
+		stringDemo4();
 		stringDemo5();
+		stringDemo6();*/
+		stringDemo7();
 
 	}
+
+
+
+
+	private static void stringDemo7() {
+		System.out.println("常用对象API-String类-常见功能-比较");
+		System.out.println("a比b大"+"a".compareTo("b"));//比较字符的大小
+	}
+
+
+
+
+	private static void stringDemo6() {
+		System.out.println("常用对象API-String类-常见功能-判断");
+		String a = "abcd";
+		String b = "Abcd";
+		String c = "bc";
+		System.out.println(a + "和" + b + "是否相等，结果：" + a.equals(b));
+		System.out.println(a + "和" + b + "忽略大小写是否相等，结果：" + a.equalsIgnoreCase(b));//忽略大小写比较大小
+		System.out.println(a + "是否包含" + c + ",结果：" + a.contains(c));
+		System.out.println(a + "是否以A开头,结果:" + a.startsWith("A"));
+		System.out.println(a + "是否以cd结尾,结果:" + a.endsWith("cd"));
+	}
+
+
 
 
 	private static void stringDemo5() {
