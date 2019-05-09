@@ -6,6 +6,13 @@ public class WrapperDemo {
 		wrapperDemo1();
 		wrapperDemo2();
 		wrapperDemo3();
+		wrapperDemo4();
+	}
+
+	private static void wrapperDemo4() {
+		System.out.println("java-常用对象API-基本数据类型对象包装类-JDK1.5自动装箱拆箱");
+		Integer num = 5;
+		System.out.println(num+130);
 	}
 
 	private static void wrapperDemo3() {
