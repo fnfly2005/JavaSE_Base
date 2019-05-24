@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WX20190524-113629.png</name>
+			<type>1</type>
+			<location>/Users/fannian/JaveSE_Base/WX20190524-113629.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
