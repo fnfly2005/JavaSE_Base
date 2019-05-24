@@ -2,14 +2,35 @@ package list.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ListDemo {
 
 	public static void main(String[] args) {
-		//java-常用对象API-集合框架-List集合常见方法
+		
 		List list = new ArrayList();
 		List list1 = show1(list);
 		show2(list1);
+		show3(list1);
+	}
+
+	private static void show3(List list1) {
+		System.out.println("java-常用对象API-集合框架-ListIterator接口");
+		ListIterator it = list1.listIterator();//获取列表迭代器对象，它可以实现在迭代过程中完成对元素的增删改查
+		System.out.println(list1);
+		while(it.hasNext())
+		{
+			Object obj = it.next();
+			if (obj.equals("abc3"))
+			{
+				it.set("abc5");
+			}
+			else
+			{
+				System.out.println("next:"+obj);
+			}
+		}
+		System.out.println(list1);
 	}
 
 	private static void show2(List list) {
@@ -20,7 +41,7 @@ public class ListDemo {
 	}
 
 	private static List show1(List list) {
-		System.out.println("添加元素");
+		System.out.println("java-常用对象API-集合框架-List集合常见方法-添加元素");
 		list.add("abc1");
 		list.add("abc2");
 		list.add("abc3");
