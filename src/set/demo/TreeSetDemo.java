@@ -18,11 +18,45 @@ class TreeSetComparatorDemo implements Comparator
 	}	
 }
 
+class TreeSetComparatorDemo2 implements Comparator
+{
+
+	@Override
+	public int compare(Object o1, Object o2) {
+		String s1 = (String) o1;
+		String s2 = (String) o2;
+		int temp = s1.length()-s2.length();
+		return temp == 0?s1.compareTo(s2):temp;
+	}
+	
+}
+
 public class TreeSetDemo {
 
 	public static void main(String[] args) {
 		show1();
 		show2();
+		show3();
+	}
+
+	private static void show3() {
+		/*
+		 * 根据字符串长度进行排序
+		 */
+		System.out.println("java-常用对象API-集合框架-TreeSet集合练习-字符串长度排序");
+		TreeSet ts = new TreeSet(new TreeSetComparatorDemo2());
+		ts.add("aaaaa");
+		ts.add("zz");
+		ts.add("nbaq");
+		ts.add("cba");
+		ts.add("abc");
+		
+		Iterator it = ts.iterator();
+		
+		while(it.hasNext()) {
+			String p = (String) it.next();
+			System.out.println(p);
+		}
 	}
 
 	private static void show2() {
