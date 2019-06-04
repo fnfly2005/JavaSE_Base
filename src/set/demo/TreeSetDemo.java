@@ -60,6 +60,7 @@ public class TreeSetDemo {
 		 * 不改变person类的情况下，实现按名称从小到大排列
 		 */
 		System.out.println("java-常用对象API-集合框架-TreeSet集合-Comparator比较器");
+		System.out.println("java-常用对象API-集合框架-泛型-在集合中的应用");
 		TreeSet<Person> ts = new TreeSet<Person>(new TreeSetComparatorDemo());
 		ts.add(new Person("zhangsan",28));
 		ts.add(new Person("wangwu",21));
