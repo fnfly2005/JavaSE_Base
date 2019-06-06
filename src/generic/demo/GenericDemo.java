@@ -1,6 +1,11 @@
 package generic.demo;
 
-import bean.test.Person;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+
+import bean.test.*;
 
 public class GenericDemo {
 
@@ -9,7 +14,36 @@ public class GenericDemo {
 		show1();
 		show2();
 		show3();
+		show4();
 
+	}
+
+	private static void show4() {
+		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(上限)");
+		ArrayList<Worker> al = new ArrayList<Worker>();
+		
+		al.add(new Worker("lisi",24));
+		al.add(new Worker("zhangsan",21));
+		
+		HashSet<Student> al2 = new HashSet<Student>();
+		
+		al2.add(new Student("wangwu",16));
+		al2.add(new Student("wangcai",11));
+		
+		printCollection(al);
+		printCollection(al2);
+	}
+
+	private static void printCollection(Collection<? extends Person> al) {
+		/*
+		 * 迭代并打印集合中元素
+		 */
+		Iterator<? extends Person> it = al.iterator();
+		while (it.hasNext())
+		{
+			Person p = it.next();
+			System.out.println(p.getName() +":"+p.getAge());
+		}
 	}
 
 	private static void show3() {

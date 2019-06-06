@@ -63,4 +63,9 @@ public class Person implements Comparable {
 		this.age = age;
 	}
 
+	@Override
+	public String toString() {
+		return getName() + ":" + getAge();
+	}
+
 }
