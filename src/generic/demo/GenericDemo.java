@@ -15,7 +15,35 @@ public class GenericDemo {
 		show2();
 		show3();
 		show4();
+		show5();
 
+	}
+
+	private static void show5() {
+		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(下限)");
+		ArrayList<Worker> al = new ArrayList<Worker>();
+		
+		al.add(new Worker("lisi",24));
+		al.add(new Worker("zhangsan",21));
+		
+		HashSet<Person> al2 = new HashSet<Person>();
+		
+		al2.add(new Person("wangwu",16));
+		al2.add(new Student("wangcai",11));
+		
+		printCollection2(al);
+		printCollection2(al2);
+	}
+
+	private static void printCollection2(Collection<? super Worker> al) {
+		/*
+		 * 迭代并打印集合中元素
+		 */
+		Iterator<? super Worker> it = al.iterator();
+		while (it.hasNext())
+		{
+			System.out.println(it.next().toString());
+		}
 	}
 
 	private static void show4() {
