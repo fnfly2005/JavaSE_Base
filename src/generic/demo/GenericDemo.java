@@ -48,7 +48,7 @@ public class GenericDemo {
 
 	private static void show4() {
 		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(上限)");
-		ArrayList<Worker> al = new ArrayList<Worker>();
+		ArrayList<Person> al = new ArrayList<Person>();
 		
 		al.add(new Worker("lisi",24));
 		al.add(new Worker("zhangsan",21));
@@ -60,6 +60,10 @@ public class GenericDemo {
 		
 		printCollection(al);
 		printCollection(al2);
+
+		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(上限的体现)");
+		al.addAll(al2);//往集合里存的时候,方法通常用的是上限 因为这样取出都是按照上限类型来运算，不会出现安全隐患  Collection<? extends Person> 
+		printCollection(al);
 	}
 
 	private static void printCollection(Collection<? extends Person> al) {
