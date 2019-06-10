@@ -23,6 +23,7 @@ public class GenericAdvanceDemo {
 
 	public static void main(String[] args) {
 		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(下限的体现)");
+		System.out.println("java-常用对象API-集合框架-泛型-泛型限定(通配符的体现)");
 		TreeSet<Person> ts1 = new TreeSet<Person>();
 		
 		ts1.add(new Person("Per7",23));
@@ -44,8 +45,11 @@ public class GenericAdvanceDemo {
 
 	}
 
-	private static void printCollection(Collection<? super Student> ts) {
-		Iterator <? super Student> it = ts.iterator();
+	private static void printCollection(Collection<?> ts) {
+		/*
+		 * 如果只用到object的方法，就可以使用通配符
+		 */
+		Iterator <?> it = ts.iterator();
 		while(it.hasNext())
 		{
 			System.out.println(it.next().toString());
