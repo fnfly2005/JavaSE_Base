@@ -14,7 +14,22 @@ public class MapDemo {
 
 		method1(map);
 		method2(map);
+		method3(map);
 
+	}
+
+	private static void method3(Map<Integer, String> map) {
+		System.out.println("java-常用对象API-集合框架-重点方法entrySet演示图解");
+		Set<Map.Entry<Integer,String>> entrySet = map.entrySet();
+		
+		Iterator<Map.Entry<Integer,String>> it = entrySet.iterator();
+		while(it.hasNext())
+		{
+			Map.Entry<Integer,String> es = it.next();
+			Integer key = es.getKey();
+			String value = es.getValue();
+			System.out.println(key + ":" + value);
+		}
 	}
 
 	private static void method2(Map<Integer, String> map) {
