@@ -1,5 +1,6 @@
 package map.demo;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,7 +16,20 @@ public class MapDemo {
 		method1(map);
 		method2(map);
 		method3(map);
+		method4(map);
 
+	}
+
+	private static void method4(Map<Integer, String> map) {
+		System.out.println("java-常用对象API-集合框架-方法values演示");
+		Collection<String> values = map.values();
+		
+		Iterator<String> it = values.iterator();
+		
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
 	}
 
 	private static void method3(Map<Integer, String> map) {
