@@ -1,10 +1,26 @@
 package map.demo;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+
+import bean.test.Person;
+import bean.test.Student;
+
+class ComparaByName implements Comparator<Student>
+{
+
+	@Override
+	public int compare(Student p1, Student p2) {
+		int temp = p1.getName().compareTo(p2.getName());
+		return temp==0?p1.getAge()-p2.getAge():temp;
+	}
+	
+}
 
 public class MapDemo {
 
@@ -17,7 +33,39 @@ public class MapDemo {
 		method2(map);
 		method3(map);
 		method4(map);
+		show1();
+		show2();
 
+	}
+
+	private static void show2() {
+		System.out.println("java-常用对象API-集合框架-Map集合-TreeMap存储自定义对象");
+		TreeMap<Student,String> am = new TreeMap<Student,String>();
+		TreeMap<Student,String> hm = new TreeMap<Student,String>(new ComparaByName());
+		printmap(am);//按类内置的比较器排序
+		printmap(hm);//按外部实现的Comparator接口排序
+	}
+
+	private static void show1() {
+		System.out.println("java-常用对象API-集合框架-Map集合-HashMap存储自定义对象");
+		HashMap<Student,String> hm = new HashMap<Student,String>();		
+		printmap(hm);//键的唯一性依赖于类的HashCode方法
+	}
+
+	private static void printmap(Map<Student, String> hm) {
+		hm.put(new Student("xiaoqiang",38), "北京");
+		hm.put(new Student("zhaoliu",24), "上海");
+		hm.put(new Student("lisi",31), "沈阳");
+		hm.put(new Student("wangcai",28), "大连");
+		hm.put(new Student("zhaoliu",24), "铁岭");
+		Set<Student> s = hm.keySet();
+		Iterator<Student> it = s.iterator();
+		while(it.hasNext())
+		{
+			Student key = it.next();
+			String value = hm.get(key);
+			System.out.println(key.getName() + ":" + key.getAge() + "--" + value);
+		}
 	}
 
 	private static void method4(Map<Integer, String> map) {
