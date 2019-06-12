@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -35,7 +36,14 @@ public class MapDemo {
 		method4(map);
 		show1();
 		show2();
+		show3();
 
+	}
+
+	private static void show3() {
+		System.out.println("java-常用对象API-集合框架-Map集合-LinkedHashMap&关联源码");
+		LinkedHashMap<Student,String> hm = new LinkedHashMap<Student,String>();
+		printmap(hm);
 	}
 
 	private static void show2() {
@@ -58,12 +66,13 @@ public class MapDemo {
 		hm.put(new Student("lisi",31), "沈阳");
 		hm.put(new Student("wangcai",28), "大连");
 		hm.put(new Student("zhaoliu",24), "铁岭");
-		Set<Student> s = hm.keySet();
-		Iterator<Student> it = s.iterator();
+		Set<Map.Entry<Student, String>> s = hm.entrySet();
+		Iterator<Map.Entry<Student, String>> it = s.iterator();
 		while(it.hasNext())
 		{
-			Student key = it.next();
-			String value = hm.get(key);
+			Map.Entry<Student, String> me = it.next();
+			Student key = me.getKey();
+			String value = me.getValue();
 			System.out.println(key.getName() + ":" + key.getAge() + "--" + value);
 		}
 	}
