@@ -1,6 +1,7 @@
 package collections.demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -32,7 +33,16 @@ public class CollectionsDemo {
 		show2(list);
 		show3(list);
 		show4(list);
+		int[] arr = {3,1,5,6,3,6};
+		
+		show5(arr);
 
+	}
+
+
+	private static void show5(int[] arr) {
+		System.out.println("java-常用对象API-集合框架-工具类-Arrays-方法介绍");
+		System.out.println(Arrays.toString(arr));
 	}
 
 
