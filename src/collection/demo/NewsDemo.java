@@ -4,13 +4,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import static java.util.Collections.*;
 
 public class NewsDemo {
 
 	public static void main(String[] args) {
-		show1();
+		List<String> list = new ArrayList<String>();
+		list.add("abc");
+		list.add("bbc");
+		list.add("cbc");
+		show1(list);
 		int s = show2(2,3,6,3,2,6,8);
 		System.out.println(s);
+		
+		show3(list);
+	}
+
+	private static void show3(List<String> list) {
+		System.out.println("java-常用对象API-集合框架-JDK5.0特性-静态导入");
+		sort(list);
+		System.out.println(list);
+		System.out.println(max(list));
 	}
 
 	private static int show2(int... arr) {
@@ -25,12 +39,8 @@ public class NewsDemo {
 		
 	}
 
-	private static void show1() {
+	private static void show1(List<String> list) {
 		System.out.println("java-常用对象API-集合框架-JDK5.0特性-ForEach循环");
-		List<String> list = new ArrayList<String>();
-		list.add("abc");
-		list.add("bbc");
-		list.add("cbc");
 		//高级for
 		for(String s: list)
 		{
