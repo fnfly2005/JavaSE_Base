@@ -8,6 +8,24 @@ import java.util.Map;
 public class NewsDemo {
 
 	public static void main(String[] args) {
+		show1();
+		int s = show2(2,3,6,3,2,6,8);
+		System.out.println(s);
+	}
+
+	private static int show2(int... arr) {
+		System.out.println("java-常用对象API-集合框架-JDK5.0特性-函数可变参数");
+		//其实就是一个数组 但接收的是数组的元素 自动将元素封装成数组 简化书写
+		int sum=0;
+		for (int i=0;i<arr.length;i++)
+		{
+			sum += arr[i];		
+		}
+		return sum;
+		
+	}
+
+	private static void show1() {
 		System.out.println("java-常用对象API-集合框架-JDK5.0特性-ForEach循环");
 		List<String> list = new ArrayList<String>();
 		list.add("abc");
