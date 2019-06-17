@@ -12,9 +12,10 @@ public class DateDemo {
 	}
 
 	private static void show2() {
-		//指定风格日期及时间类型
+		
 		System.out.println("java-其他对象API-Date类-日期对象转成字符串");
 		Date d1 = new Date();
+		//指定风格日期及时间类型
 		DateFormat dateformat1 = DateFormat.getDateInstance();
 		DateFormat dateformat2 = DateFormat.getDateInstance(DateFormat.LONG);
 		DateFormat datetimeformat = DateFormat.getDateTimeInstance();
