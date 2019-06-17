@@ -1,12 +1,30 @@
 package date.demo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateDemo {
 
 	public static void main(String[] args) {
 		show1();
+		show2();
+	}
 
+	private static void show2() {
+		//指定风格日期及时间类型
+		System.out.println("java-其他对象API-Date类-日期对象转成字符串");
+		Date d1 = new Date();
+		DateFormat dateformat1 = DateFormat.getDateInstance();
+		DateFormat dateformat2 = DateFormat.getDateInstance(DateFormat.LONG);
+		DateFormat datetimeformat = DateFormat.getDateTimeInstance();
+
+		System.out.println(dateformat1.format(d1));
+		System.out.println(dateformat2.format(d1));
+		System.out.println(datetimeformat.format(d1));
+		//自定义日期及时间类型
+		DateFormat dateformat3 = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(dateformat3.format(d1));
 	}
 
 	private static void show1() {
