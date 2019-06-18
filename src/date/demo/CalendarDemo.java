@@ -5,12 +5,21 @@ import java.util.Calendar;
 public class CalendarDemo {
 
 	public static void main(String[] args) {
-		show1();
+		Calendar cd = Calendar.getInstance();
+		System.out.println("java-其他对象API-Calender类-基本演示");
+		show1(cd);
+		System.out.println("java-其他对象API-Calender类-练习");
+		show2(2004);
 	}
 
-	private static void show1() {
-		System.out.println("java-其他对象API-Calender类-基本演示");
-		Calendar cd = Calendar.getInstance();
+	private static void show2(int year) {	
+		Calendar c = Calendar.getInstance();
+		c.set(year,2,1);
+		c.add(Calendar.DAY_OF_MONTH,-1);
+		show1(c);
+	}
+
+	private static void show1(Calendar cd) {	
 		int year = cd.get(Calendar.YEAR);
 		int month = cd.get(Calendar.MONTH)+1;
 		int day = cd.get(Calendar.DAY_OF_MONTH);
