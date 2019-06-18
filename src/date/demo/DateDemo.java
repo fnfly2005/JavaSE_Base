@@ -10,7 +10,17 @@ public class DateDemo {
 	public static void main(String[] args) throws ParseException {
 		show1();
 		show2();
-		show3();
+		show3();	
+		show4("2019-05-18","2019-06-18");
+	}
+
+	private static void show4(String s1,String s2) throws ParseException {
+		System.out.println("java-其他对象API-Date类-练习");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		long time2 = df.parse(s2).getTime();
+		long time1 = df.parse(s1).getTime();
+		long day = (time2 -time1)/1000/60/60/24;
+		System.out.println(day);
 	}
 
 	private static void show3() throws ParseException {
