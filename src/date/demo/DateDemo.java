@@ -1,14 +1,29 @@
 package date.demo;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		show1();
 		show2();
+		show3();
+	}
+
+	private static void show3() throws ParseException {
+		System.out.println("java-其他对象API-Date类-字符串转成日期对象");
+		String str1 = "2019-6-18";
+		DateFormat df1 = DateFormat.getDateInstance();
+		System.out.println(df1.parse(str1));
+		String str2 = "2019年6月18日";
+		DateFormat df2 = DateFormat.getDateInstance(DateFormat.LONG);
+		System.out.println(df2.parse(str2));
+		String str3 = "2019-06-18";
+		DateFormat df3 = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(df3.parse(str3));
 	}
 
 	private static void show2() {
