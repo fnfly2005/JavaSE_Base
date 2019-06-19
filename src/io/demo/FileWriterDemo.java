@@ -8,6 +8,7 @@ public class FileWriterDemo {
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	public static void main(String[] args) throws IOException {
+		System.out.println(System.getProperty("user.dir"));
 		write1();
 		write2();
 	}
