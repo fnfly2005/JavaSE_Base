@@ -1,7 +1,6 @@
 package io.demo;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -27,6 +26,7 @@ public class ByteStreamDemo {
 		{
 			System.out.println(new String(buf,0,line));
 		}
+		fis.close();
 	}
 	
 
@@ -40,7 +40,7 @@ public class ByteStreamDemo {
 		{
 			System.out.println(new String(buf,0,line));
 		}
-		
+		fis.close();
 	}
 	
 	private static void demo_read1() throws IOException {
@@ -51,6 +51,7 @@ public class ByteStreamDemo {
 		{
 			System.out.println((char)line);
 		}
+		fis.close();
 		
 	}
 
