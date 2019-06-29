@@ -17,9 +17,21 @@ public class FileDemo {
 		show3();
 		show4();
 		show5();
+		show6();
 	}
 
 	
+	private static void show6() {
+		System.out.println("java-IO流-File对象-常见功能-获取目录内容");
+		File f = new File("H:\\downloads\\xt\\备份\\业余\\");
+		String[] files = f.list();
+		   for (String filename : files)
+		   {
+			   System.out.println(filename);
+		   }
+	}
+
+
 	private static void show5() {
 	   System.out.println("java-IO流-File对象-常见功能-系统根目录和容量获取");
 	   File[] files = File.listRoots();
