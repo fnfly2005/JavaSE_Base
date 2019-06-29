@@ -8,20 +8,39 @@ import java.util.Date;
 public class FileDemo {
 
 	
+	private static final long SPACE = 1024*1024*1024;
+
 	public static void main(String[] args) throws IOException {
+		
 		show1();
 		show2();
 		show3();
 		show4();
+		show5();
 	}
 
 	
+	private static void show5() {
+	   System.out.println("java-IO流-File对象-常见功能-系统根目录和容量获取");
+	   File[] files = File.listRoots();
+	   for (File file : files)
+	   {
+		   System.out.println(file);
+		   System.out.println(file.getFreeSpace()/SPACE+"GB");
+		  System.out.println(file.getTotalSpace()/SPACE+"GB");
+		  System.out.println(file.getUsableSpace()/SPACE+"GB");//虚拟机可用空间
+	   }
+	}
+	
+
+
 	private static void show4() {
 		System.out.println("java-IO流-File对象-常见功能-重命名");
 		File f1 = new File("H:\\aa.avi");
 		File f2 = new File("D:\\DATA\\fannian\\Downloads\\filedemo.avi");
 		
-		System.out.println(f1.renameTo(f2));
+		System.out.println(f1.renameTo(f2));//重命名还可以实现剪切操作，类似MV命令
+		System.out.println(f2.isAbsolute());
 	}
 
 
