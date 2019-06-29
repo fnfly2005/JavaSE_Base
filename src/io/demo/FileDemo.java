@@ -12,9 +12,19 @@ public class FileDemo {
 		show1();
 		show2();
 		show3();
+		show4();
 	}
 
 	
+	private static void show4() {
+		System.out.println("java-IO流-File对象-常见功能-重命名");
+		File f1 = new File("H:\\aa.avi");
+		File f2 = new File("D:\\DATA\\fannian\\Downloads\\filedemo.avi");
+		
+		System.out.println(f1.renameTo(f2));
+	}
+
+
 	private static void show3() throws IOException {
 		System.out.println("java-IO流-File对象-常见功能-创建和删除");
 		System.out.println("java-IO流-File对象-常见功能-判断");
