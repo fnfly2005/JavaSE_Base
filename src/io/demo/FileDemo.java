@@ -21,13 +21,23 @@ public class FileDemo {
 	}
 
 	
+
 	private static void show6() {
 		System.out.println("java-IO流-File对象-常见功能-获取目录内容");
-		File f = new File("H:\\downloads\\xt\\备份\\业余\\");
-		String[] files = f.list();
-		   for (String filename : files)
+		System.out.println("java-IO流-File对象-常见功能-过滤器");
+		File f1 = new File("H:\\downloads\\xt\\备份\\业余\\");
+		File f2 = new File("C:\\");
+		String[] files = f1.list(new FilterSuffix(".mp4"));
+		File[] fs1 = f2.listFiles(new FilterHiddenDemo());
+		//返回后缀名为mp4的文件   
+		for (String filename : files)
 		   {
 			   System.out.println(filename);
+		   }
+		   //返回隐藏文件
+		   for(File file:fs1)
+		   {
+			   System.out.println(file);
 		   }
 	}
 
