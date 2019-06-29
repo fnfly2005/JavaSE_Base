@@ -17,16 +17,24 @@ public class FileDemo {
 	
 	private static void show3() throws IOException {
 		System.out.println("java-IO流-File对象-常见功能-创建和删除");
+		System.out.println("java-IO流-File对象-常见功能-判断");
 		File f = new File("FileDemo.txt");
 		File dir1 = new File("abc");
 		File dir2 = new File("abc\\a\\b");
-		boolean rf = f.createNewFile();//若不存在则创建，存在则不创建
-		
-		boolean md1 = dir1.mkdir();
-		boolean m1 = dir1.delete();
+		if (f.exists())
+		{
+			f.delete();
+		}
+		System.out.println("f create" + f.createNewFile());//若不存在则创建，存在则不创建
+		if (dir1.exists())
+		{
+			dir1.delete();
+		}
+		System.out.println("dir1 create" + dir1.mkdir());
 		boolean md2 = dir2.mkdirs();
-		System.out.println(rf+":"+ md1+":"+m1+":"+md2);
-
+		System.out.println(md2);
+		System.out.println("f is file:"+f.isFile());
+		System.out.println("f is dir:"+f.isDirectory());
 		
 	}
 
