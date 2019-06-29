@@ -1,19 +1,36 @@
 package io.demo;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 
 public class FileDemo {
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		show1();
 		show2();
-
+		show3();
 	}
 
 	
+	private static void show3() throws IOException {
+		System.out.println("java-IO流-File对象-常见功能-创建和删除");
+		File f = new File("FileDemo.txt");
+		File dir1 = new File("abc");
+		File dir2 = new File("abc\\a\\b");
+		boolean rf = f.createNewFile();//若不存在则创建，存在则不创建
+		
+		boolean md1 = dir1.mkdir();
+		boolean m1 = dir1.delete();
+		boolean md2 = dir2.mkdirs();
+		System.out.println(rf+":"+ md1+":"+m1+":"+md2);
+
+		
+	}
+
+
 	private static void show2() {
 		System.out.println("java-IO流-File对象-常见功能-获取");
 		File f1 = new File("copyfiletest1.txt");
