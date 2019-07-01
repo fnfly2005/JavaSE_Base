@@ -13,6 +13,24 @@ public class FileTest {
 		System.out.println("java-IO流-File对象-练习-递归二");
 		System.out.println(show2(5));//求自然数的和
 
+		System.out.println("java-IO流-File对象-练习-删除目录");
+		File f1 = new File("/Users/fannian/Downloads/deltest");
+		show3(f1);
+	}
+
+	private static void show3(File f1) {
+		if(f1.isDirectory())
+		{
+			for (File file: f1.listFiles())
+			{
+				show3(file);
+			}	
+			System.out.println(f1.getName() + f1.delete());
+		}
+		else {
+			System.out.println(f1.getName() +":"+ f1.delete());
+		}
+		
 	}
 
 	private static int show2(int i) {
