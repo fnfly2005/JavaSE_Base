@@ -8,7 +8,28 @@ public class FileTest {
 		System.out.println("java-IO流-File对象-练习-深度遍历文件夹");
 		File f = new File("/Users/fannian/Documents/document_config");
 		printFileList(f,0);
+		System.out.println("java-IO流-File对象-练习-递归一");
+		show1(6);//十进制转二进制
+		System.out.println("java-IO流-File对象-练习-递归二");
+		System.out.println(show2(5));//求自然数的和
 
+	}
+
+	private static int show2(int i) {
+		if(i==1)
+		{
+			return 1;
+		}
+		return i+show2(i-1);
+	}
+
+	private static void show1(int i) {
+		if(i>0)
+		{
+			System.out.println(i%2);
+			show1(i/2);
+		}
+		
 	}
 
 	private static void printFileList(File f,int i) {
