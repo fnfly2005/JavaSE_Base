@@ -1,0 +1,6 @@
+#newinfo
+#Tue Jul 02 20:42:40 CST 2019
+xiaoqiang=20
+zhangsan=16
+lisi=31
+wangcai=23
