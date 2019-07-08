@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Person implements Comparable,Serializable {
 	private String name;
 	private int age;
+	private static final long serialVersionUID = 4657913l;//显示申明类的序列化版本
+	//private transient String name;
 
 	public Person() {
 		super();

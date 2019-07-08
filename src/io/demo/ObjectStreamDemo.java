@@ -14,7 +14,8 @@ public class ObjectStreamDemo {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		writeDemo();
 		readDemo();
-
+		System.out.println("java-IO流-序列化接口-serializable");
+		System.out.println("java-IO流-关键字-transient");
 	}
 
 	private static void readDemo() throws IOException, ClassNotFoundException {
