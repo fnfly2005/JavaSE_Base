@@ -23,7 +23,7 @@ public class RandomAccessFileDemo {
 		System.out.println("name:"+name);
 		System.out.println("age:"+age);
 		System.out.println(raf.getFilePointer());
-		raf.seek(10);
+		raf.seek(20);
 		raf.read(b);
 		String name2 =  new String(b);
 		int age2 = raf.readInt();
@@ -34,13 +34,16 @@ public class RandomAccessFileDemo {
 
 	private static void writeFile() throws IOException {
 		System.out.println("java-IO流-RandomAccessFile-写入");
+		System.out.println("java-IO流-RandomAccessFile-随机写入&细节");
 		
 		RandomAccessFile raf = new RandomAccessFile("RandomAccessFileDemo.txt","rw");//若不存在则创建，存在则不创建
 		raf.write("张三".getBytes());
 		raf.writeInt(97);
+		raf.seek(20);
 		raf.write("小强".getBytes());
 		raf.writeInt(99);
 		raf.close();
+		
 	}
 
 }
