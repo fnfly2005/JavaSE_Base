@@ -4,6 +4,8 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -49,12 +51,28 @@ public class MouseAndKeyDemo {
 			
 		});
 		
+		tf.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int code = e.getKeyCode();
+				if(e.isControlDown() && code==KeyEvent.VK_ENTER) {
+					System.out.println("开始登陆");
+				}
+				else if (!(code >=KeyEvent.VK_0  && code <= KeyEvent.VK_9)) {				
+					System.out.println("必须输入数字");
+					e.consume();
+				}
+				
+			}
+			
+		});
+		
 		bu.addMouseListener(new MouseAdapter() {
 			int count = 0;
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
 				if(e.getClickCount()==2)
 				tf.setText("mouse double click "+count++);
 				
@@ -66,6 +84,7 @@ public class MouseAndKeyDemo {
 
 	public static void main(String[] args) {
 		System.out.println("java-GUI-鼠标事件");
+		System.out.println("java-GUI-键盘事件");
 		new MouseAndKeyDemo();
 
 	}
