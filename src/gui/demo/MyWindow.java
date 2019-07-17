@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class MyWindow extends JFrame {
 
@@ -50,10 +51,13 @@ public class MyWindow extends JFrame {
 		textField.setBounds(6, 24, 315, 30);
 		contentPane.add(textField);
 		textField.setColumns(20);
-
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(6, 54, 438, 218);
+		contentPane.add(scrollPane);
+		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(6, 66, 438, 206);
-		contentPane.add(textArea);
+		scrollPane.setViewportView(textArea);
+		
 		
 		JButton button = new JButton("转到");
 		button.addActionListener(new ActionListener() {
@@ -71,6 +75,9 @@ public class MyWindow extends JFrame {
 		});
 		button.setBounds(332, 24, 112, 30);
 		contentPane.add(button);
+		
+		
+
 		
 
 	}
