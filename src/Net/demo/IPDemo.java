@@ -11,6 +11,7 @@ public class IPDemo {
 		InetAddress ip0 = InetAddress.getByName("192.168.1.1");
 		InetAddress ip1 = InetAddress.getByName("www.baidu.com");
 		System.out.println(ip.getHostName());
+		System.out.println(ip.getHostAddress());
 		System.out.println(ip0.getHostAddress());
 		System.out.println(ip1.getHostAddress());
 		
