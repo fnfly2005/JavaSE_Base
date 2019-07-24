@@ -2,6 +2,7 @@ package Net.demo;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -23,6 +24,9 @@ public class ServerDemo {
 		String text = new String(buf,0,len);
 		
 		System.out.println(ip + " server: " +text);
+		
+		OutputStream out = s.getOutputStream();
+		out.write("收到".getBytes());
 		
 		s.close();
 		
