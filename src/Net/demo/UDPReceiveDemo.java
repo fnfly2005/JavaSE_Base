@@ -25,7 +25,7 @@ public class UDPReceiveDemo implements Runnable {
 				String text = new String(dp.getData(),0,dp.getLength());
 				System.out.println(ip+":"+port+":"+text);
 				if(text.equals("886")) {
-					System.out.println("ip"+"...退出聊天室");
+					System.out.println(ip+"...退出聊天室");
 				}
 			}
 			} catch (IOException e) {

@@ -25,7 +25,7 @@ public class UDPSendDemo implements Runnable {
 			while((str=br.readLine())!=null){
 				byte[] buf = str.getBytes();
 				DatagramPacket dp = 
-						new DatagramPacket(buf, buf.length,InetAddress.getByName("127.0.0.1"), 2500);			
+						new DatagramPacket(buf, buf.length,InetAddress.getByName("192.168.31.255"), 2500);			
 				ds.send(dp);
 				if("886".equals(str)) {
 					break;
