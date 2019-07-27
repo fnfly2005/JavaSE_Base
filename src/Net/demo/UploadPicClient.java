@@ -12,7 +12,7 @@ public class UploadPicClient {
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		System.out.println("java-网络编程-TCP协议-练习-上传图片客户端");
 		
-		Socket s = new Socket("127.0.0.1",10006);
+		Socket s = new Socket("192.168.31.196",10007);
 		
 		FileInputStream fis = new FileInputStream("test.bmp");
 		
