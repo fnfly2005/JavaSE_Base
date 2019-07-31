@@ -2,6 +2,7 @@ package bean.test;
 
 import java.io.Serializable;
 
+@SuppressWarnings("rawtypes")
 public class Person implements Comparable,Serializable {
 	private String name;
 	private int age;
@@ -70,6 +71,23 @@ public class Person implements Comparable,Serializable {
 	@Override
 	public String toString() {
 		return getName() + ":" + getAge();
+	}
+	
+	public void show() {
+		System.out.println(getName() +"...show run..." +getAge());
+	}
+	
+	@SuppressWarnings("unused")
+	private void method() {
+		System.out.println("method run ");
+	}
+	
+	public void paramMethod(String str, int num) {
+		System.out.println("paramMethod run..." + str + ":" +num);
+	}
+	
+	public static void staticMethod(){
+		System.out.println("static Method run...");
 	}
 
 }
