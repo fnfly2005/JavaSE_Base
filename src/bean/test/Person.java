@@ -12,6 +12,7 @@ public class Person implements Comparable,Serializable {
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
+		System.out.println("person run.. ");
 	}
 
 	@Override
@@ -50,6 +51,7 @@ public class Person implements Comparable,Serializable {
 		super();
 		this.name = name;
 		this.age = age;
+		System.out.println(name +"person run.. " +age);
 	}
 
 	public String getName() {
