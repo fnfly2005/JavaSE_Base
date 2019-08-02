@@ -2,6 +2,7 @@ package reflect.demo;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import bean.test.Person;
 
@@ -16,9 +17,28 @@ public class ReflectDemo {
 		
 		System.out.println("java-反射机制-获取Class中的构造函数");
 		createNewObject();
+		
 		System.out.println("java-反射机制-获取Class中的字段");
 		getFieldDemo();
 
+		System.out.println("java-反射机制-获取Class中的方法");
+		getMethodDemo();
+	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static void getMethodDemo() throws Exception {
+		Class clazz = Class.forName("bean.test.Person");
+		
+		Method method1 = clazz.getMethod("show", null);
+		
+		Method method2 = clazz.getMethod("paramMethod",String.class,int.class);
+		
+		Constructor constructor = clazz.getConstructor(String.class,int.class);
+		Object obj = constructor.newInstance("小强",89);
+		
+		method1.invoke(obj);
+		
+		method2.invoke(obj, "小米",17);
+		
 	}
 	@SuppressWarnings("rawtypes")
 	private static void getFieldDemo() throws Exception {
