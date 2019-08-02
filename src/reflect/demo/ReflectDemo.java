@@ -1,6 +1,7 @@
 package reflect.demo;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 
 import bean.test.Person;
 
@@ -15,8 +16,22 @@ public class ReflectDemo {
 		
 		System.out.println("java-反射机制-获取Class中的构造函数");
 		createNewObject();
-		
+		System.out.println("java-反射机制-获取Class中的字段");
+		getFieldDemo();
 
+	}
+	@SuppressWarnings("rawtypes")
+	private static void getFieldDemo() throws Exception {
+		Class clazz = Class.forName("bean.test.Person");
+		//getField 获取公共字段
+		Field field = clazz.getDeclaredField("age");//只获取本类，但包含私有
+		
+		field.setAccessible(true);
+		Object obj = clazz.newInstance();
+		Object o =field.get(obj);
+		
+		System.out.println(o);
+		
 	}
 	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	private static void createNewObject() throws Exception {
