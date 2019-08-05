@@ -1,5 +1,8 @@
 package regex.demo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegexDemo {
 
 	public static void main(String[] args) {
@@ -9,7 +12,19 @@ public class RegexDemo {
 		show3();
 		show4();
 		show5();
+		show6();
 
+	}
+
+	private static void show6() {
+		System.out.println("java-正则表达式-常见的功能-获取");
+		String str = "da jia hao,ming tian bu fang jia!";
+		String regex = "\\b[a-z]{3}\\b";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(str);
+		while(m.find()) {
+			System.out.println(m.group());
+		}
 	}
 
 	private static void show5() {
