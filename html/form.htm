@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	表单组件-input
+	表单组件-select&textarea
+	表单格式化
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<form>
+			<table border="1" bordercolor="#00ffff" cellpadding=10 cellspacing=0 width="600">
+                <caption>注册表单</caption>
+				<tr>
+					<td>用户名称:</td>
+					<td>
+					<input type="text" name="user"/>
+					</td>
+				</tr>
+				<tr>
+					<td>输入密码:</td>
+					<td>
+					<input type="password" name="psw" />
+					</td>
+				</tr>
+				<tr>
+					<td>确认密码:</td>
+					<td>
+					<input type="password" name="repsw" />
+					</td>
+				</tr>
+				<tr>
+					<td>输入性别:</td>
+					<td>
+					<input type="radio" name="sex" value="nan"/>
+					男
+					<input type="radio" name="sex" value="nv" checked="checked"/>
+					女</td>
+				</tr>
+				<tr>
+					<td>所会技术:</td>
+					<td>
+					<input type="checkbox" name="tech" value="java" checked="checked"/>
+					JAVA
+					<input name="tech" type="checkbox"/>
+					HTML
+					<input name="tech" type="checkbox"/>
+					CSS </td>
+				</tr>
+				<tr>
+					<td>选择国家:</td>
+					<td>
+					<select name="country">
+						<option value="usa">美国</option>
+						<option value="en">英国</option>
+						<option value="cn" selected="selected">中国</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>个人简介:</td>
+					<td>					<textarea name="text"></textarea></td>
+				</tr>
+				<tr>
+					<td>一个按钮:</td>
+					<td>
+					<input type="button" value="有个按钮" onclick="alert('有个阿牛')" />
+					</td>
+				</tr>
+				<tr>
+					<td>选择文件:</td>
+					<td>
+					<input type="file" name="file"/>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+					<input type="reset" value="清除数据"/>
+					<input type="submit" value="提交数据"/>
+					</th>
+				</tr>
+				<tr>
+					<th colspan="2"> 一个图片:
+					<input type="image" src="11.jpg" name="img"/>
+					<!-- 数据不需要客户端知道，但是可以将其提交服务端 -->
+					隐藏组件:
+					<input type="hidden" name="myke" value="myvalue">
+					</th>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
