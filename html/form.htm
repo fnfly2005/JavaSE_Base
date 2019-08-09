@@ -5,15 +5,18 @@
 	表单组件-input
 	表单组件-select&textarea
 	表单格式化
+	GET和POST区别
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 		<title>Add Title Here</title>
 	</head>
 	<body>
-		<form>
+		<form action="http://172.22.50.53:9090" method="post">
 			<table border="1" bordercolor="#00ffff" cellpadding=10 cellspacing=0 width="600">
-                <caption>注册表单</caption>
+				<caption>
+					注册表单
+				</caption>
 				<tr>
 					<td>用户名称:</td>
 					<td>
@@ -84,8 +87,7 @@
 				<tr>
 					<th colspan="2"> 一个图片:
 					<input type="image" src="11.jpg" name="img"/>
-					<!-- 数据不需要客户端知道，但是可以将其提交服务端 -->
-					隐藏组件:
+					<!-- 数据不需要客户端知道，但是可以将其提交服务端 --> 隐藏组件:
 					<input type="hidden" name="myke" value="myvalue">
 					</th>
 				</tr>
