@@ -3,6 +3,7 @@
 <html>
 	<!--
 	CSS-伪元素选择器一
+	CSS-伪元素选择器二
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -32,10 +33,27 @@
 				color: #000;
 				text-decoration: line-through;
 			}
+			
+			p:first-letter {
+				font-size:36px;
+				color:#F00;
+			}
+			
+			input:focus{
+				background-color: #09F;
+			}
+			div:hover{
+				background-color: #09F;			
+			}
+			
+			
 		</style>
 	</head>
 	<body>
 
+		<input type="text" />
+		<input type="text" />
+		<hr />
 		<a href="http://www.baidu.com" target="_blank">伪元素选择器演示</a>
 		<div>
 			这是一个div区域
