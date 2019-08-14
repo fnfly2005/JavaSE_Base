@@ -3,6 +3,7 @@
 <html>
 	<!--
 	CSS-CSS的布局-图文混排
+	CSS-CSS的布局-图像签名
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -22,6 +23,19 @@
 				color:#000;
 				font-family:"Arial Black"
 			}
+			
+			#textimg{
+				border:#F60 dashed 1px;
+				position: absolute;
+			}
+			
+			#tag{
+				font-size: 24px;
+				color:#FFF;
+				position:absolute;
+				top:50px;
+				left:10px;
+			}
 
 		</style>
 	</head>
@@ -37,6 +51,14 @@
 				一切尽在不言中，哇~
 				这是一个美女，说明文字。
 				一切尽在不言中，哇~
+			</div>
+		</div>
+		<div id="textimg">
+			<div id="bmp">
+				<img src="test.bmp" />
+			</div>
+			<div id="tag">
+				东方project
 			</div>
 		</div>
 	</body>
