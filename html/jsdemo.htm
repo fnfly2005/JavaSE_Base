@@ -3,6 +3,7 @@
 <html>
 	<!--
 	Js和html相结合的方式一二
+	JS语法-变量
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -13,7 +14,28 @@
 	<body>
 		<script type="text/javascript" src="demo.js"></script>
 		<script type="text/javascript">
-			alert("hello javascript");
+			/*JS语法-变量*/
+			var x = 3;
+			var y = "abc";
+			var z = 3.14;
+			var a = true;
+			//alert("x="+x+y+z+a);
+		</script>
+		<script type="text/javascript">
+			var a = 3710;
+//			alert("a="+a/1000*1000);
+
+			var a1=2.3,b1=4.7;
+//			alert("a1+b1="+(a1+b1));
+
+//			alert("12"-1);//11
+//			alert("12"+1);//121
+//			alert(true+1);//2 因为在js中false就是0 ,或者null，非0，非null,就是true,默认用1表示
+//			alert(2%5);//2
+
+			var n=3,m;
+			m=n++;
+			alert("n="+n+",m="+m)
 		</script>
 
 	</body>
