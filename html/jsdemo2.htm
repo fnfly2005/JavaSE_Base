@@ -1,9 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<!--
-	JS语法-if语句
-	-->
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 		<title>Add Title Here</title>
@@ -11,18 +9,35 @@
 		</style>
 	</head>
 	<body>
+		<!--
+		JS语法-if语句
+		-->
 		<script type="text/javascript">
-		var x = 3;
-		if(4==x){
-			alert("yes");
-		}
-		else if(x>2)
-			alert("hi");
-		else
-			alert("no");
-					
+			var x = 3;
+			if (4 == x) {
+				c("yes");
+			} else if (x > 2)
+				document.write("hi");
+			else
+				document.write("no");
+
 		</script>
-
-
+		<!--
+		JS语法-switch语句
+		-->
+		<script type="text/javascript">
+		var x = "abc"
+		switch(x){
+			default:
+				document.write("c");
+				break;
+			case "kk":
+				document.write("a");
+				break;
+			case "abc":
+				document.write("b");
+				break;
+		}
+		</script>
 	</body>
 </html>
