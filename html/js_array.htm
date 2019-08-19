@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	JS语句-JS数组
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [12,34,567];
+			arr[4]=348;
+			
+			
+			document.write(arr.length);
+			for(var x=0;x<arr.length;x++){
+				document.write("arr["+x+"]="+arr[x]+"<br/>");
+			}
+			var brr = new Array(5);
+			brr[0]=4;
+			brr[2]="abc";
+			brr[4]=true;
+			for(var x=0;x<arr.length;x++){
+				document.write("brr["+x+"]="+brr[x]+"<br/>");
+			}			
+		</script>
+	</body>
+</html>
