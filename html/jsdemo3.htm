@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	Javascript-全局变量和局部变量
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		for (var x=0;x<3;x++){
+			document.write("x="+x);
+		}
+		function show(x){
+			x=8;
+		}
+		</script>
+		<script type="text/javascript">
+			document.write("x="+x);
+		</script>
+	</body>
+</html>
