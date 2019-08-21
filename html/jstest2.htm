@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+    JS函数-练习
+    定义功能： 
+    对数组的最值获取
+    对数组的排序
+    对数组的查找
+    对数组元素进行反转
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			function println(val){
+				document.write(val+"<br />");
+			}
+			
+			var arr = [66,31,37,21,89,14];
+			
+			function getMax(arr){
+				var max_mark = 0;
+				for (var x = 1;x<arr.length;x++){
+					if(arr[max_mark]<arr[x]){
+						max_mark=x;
+					}
+				}
+				return arr[max_mark];
+			}
+
+			function sortArray(arr){
+				for (var x=0;x<arr.length-1;x++){
+					for (var y=x+1;y<arr.length;y++){
+						if(arr[x]>arr[y]){
+							swap(arr,x,y);
+						}
+					}
+				}
+				return arr;
+			}
+
+			function swap(arr,x,y){
+				var temp = arr[x];
+				arr[x] = arr[y];
+				arr[y] = temp;
+			}
+									
+			println(getMax(arr));
+			println("排序前："+arr);
+			println("排序后："+sortArray(arr));
+			
+		</script>
+	</body>
+</html>
