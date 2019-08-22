@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	Javascript-常见对象-Array-基本功能一
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+			var arr = ["nba","haha","cba","aaa","abc"];
+			var arr2 = ["qq","xiaoqiang",70];
+			println(arr);
+			println(arr2);
+			
+			var newArr = arr.concat("mm",arr2);
+			println(newArr);
+			println(arr.join("-"));
+			println("<hr/>");
+			println(arr);
+			println(arr.pop());
+			println(arr);
+			println("<hr/>");
+			
+			arr.push(arr2,"mm");
+			println(arr);
+			println(arr.reverse());
+		</script>
+	</body>
+</html>
