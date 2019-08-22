@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	Javascript-原型练习
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+			var str = "abcdefg"
+			String.prototype.toCharArray = function() {
+				var chs = [];
+				for (var x = 0; x < this.length; x++) {
+					chs[x] = this.charAt(x);
+				}
+				return chs;
+			}
+
+			String.prototype.reverse = function() {
+				var arr = this.toCharArray();
+				
+				function swap(arr, x, y) {
+					var temp = arr[x];
+					arr[x] = arr[y];
+					arr[y] = temp;
+				}
+
+				for (var start = 0,
+				    end = arr.length - 1; start < end; start++, end--) {
+					swap(arr, start, end);
+				}
+
+				return arr.join("");
+			}
+			println(str.toCharArray());
+			println(str.reverse());
+
+		</script>
+	</body>
+</html>
