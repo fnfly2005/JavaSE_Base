@@ -11,13 +11,23 @@
 	<body>
 		<script type="text/javascript" src="out.js"></script>
 		<script type="text/javascript">
-			var str="abcde";
+			var str="  acbd e  ";
 			
 			println(str.bold()+"的长度是"+str.length);
 			println(str.fontcolor("red"));
 			println(str.link("http://www.baidu.com"));
 			println(str.substr(1,3));//截长度
 			println(str.substring(1,3));//截起始结束
+			
+			function trim(str){
+				/*
+				 * 去除字符串两边空白符
+				 */
+				return str.replace(/\s*([\S][\S\s]*[\S])\s*/g,"$1");
+			}
+			println("-"+str+"-");
+			println("-"+trim(str)+"-");
+			
 		</script>
 	</body>
 </html>
