@@ -1,8 +1,10 @@
 var date = new Date();
-var year = date.getFullYear();
-var month = date.getMonth()+1;
-var day = date.getDate();
-var week = date.getDay();
+with(date){
+var year = getFullYear();
+var month = getMonth()+1;
+var day = getDate();
+var week = getDay();
+}
 
 function getWeek(num){
 	var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
