@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<!--
-	Javascript-JS自定义对象1
+	Javascript-JS自定义对象
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -68,6 +68,21 @@
 			return map[key];
 		}
 		println(var2);
+		
+		var myobj ={
+			myname:"lisisi",myage:30
+		}
+		println(myobj.myname+":"+myobj["myname"]);
+		
+		var myobj0 = {
+			"myname2":"hahahah","myage2":48
+		}
+		println(myobj0.myname2+":"+myobj0["myage2"])
+		
+		var myMap = {
+			names:[{name1:"zhangsan"},{myname:"hahaha"}]
+		}
+		println(myMap['names'][0].name1);
 		</script>
 	</body>
 </html>
