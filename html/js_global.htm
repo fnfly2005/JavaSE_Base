@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	Javascript-全局方法和Numberd对象
+	Javascript-JS中的特有语句for in
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+		//将指定进制格式的字符串转成十进制
+			var num0 = parseInt("110",2);
+			var num1 = parseInt("110",10);
+			println("num="+num0);
+			println("num="+num1);
+			println("value="+isNaN(parseInt("abc")));	//非法值判断
+		//将十进制转成其他进制
+		
+			var num2 = new Number(6);
+			
+			var num3 = 60;
+			
+			println("num="+num2.toString(2));
+			println("num="+num3.toString(16));
+			
+		//JS中特有语句
+			var arr=[32,80,65];
+			
+			for (i in arr){
+				println("i="+arr[i]);
+			}
+			
+			println("<hr/>");
+			
+		</script>
+	</body>
+</html>
