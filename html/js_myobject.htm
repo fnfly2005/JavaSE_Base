@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	Javascript-JS自定义对象1
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+		function Person(){//相当于构造器
+			println("person run");
+		}
+		
+		var p = new Person();
+		p.name = "zhangsan";
+		p.age = 29;
+		p.show = function(){
+			println("show:"+this.name+":"+this.age);
+		}
+		
+		p.show();
+		
+		
+		function Object(name,age){
+			this.name = name;
+			this.age = age;
+			
+			this.setName = function(name){
+				this.name = name;
+			}
+			
+			this.getName = function(name){
+				return this.name;
+			}
+		}
+		var obj = new Object("wangcai",20);
+
+		println(obj.getName());
+		obj.setName("xiaoqiang");
+		println(obj.getName());
+		
+		var pp = {
+			//定义一些成员
+			"name":"小明","age":38,
+			"getName":function(){
+				return this.name;
+			}
+		}
+		
+		println(pp.getName()+":"+pp["age"]);
+		
+		for ( x in obj){
+			println(x+":"+obj[x]);
+		}
+		
+		var map = {
+			8:"小强",3:"旺财",7:"小明"
+		}
+		
+		var var2 = get(7);
+		function get(key){
+			return map[key];
+		}
+		println(var2);
+		</script>
+	</body>
+</html>
