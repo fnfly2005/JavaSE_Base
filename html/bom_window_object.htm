@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-BOM&Navigator对象&History对象
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<!--定义按钮 onclick事件的处理方式 -->
+		<script type="text/javascript">
+			//定义一函数
+			function windowObjDemo(){
+				var name = window.navigator.appName;
+				var version = navigator.appVersion;//可省略
+				var history = navigator.history;//history对象可实现网页的前进后退
+				println(name + "<br/>" +version);
+			}
+		</script>
+		
+		<!--定义事件源，注册事件关联的动作-->
+		<input type="button" value="演示window中的对象" onclick="windowObjDemo()" />
+		
+	</body>
+</html>
