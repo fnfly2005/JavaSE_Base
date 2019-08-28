@@ -4,6 +4,7 @@
 	<!--
 	DOM-BOM&Navigator对象&History对象
 	DOM-Location对象
+	DOM-window常见方法一
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -14,25 +15,51 @@
 		<!--定义按钮 onclick事件的处理方式 -->
 		<script type="text/javascript">
 			//定义一函数
-			function windowObjDemo(){
+			function windowObjDemo() {
 				var name = window.navigator.appName;
-				var version = navigator.appVersion;//可省略
-				var history = navigator.history;//history对象可实现网页的前进后退
-				println(name + "<br/>" +version);
+				var version = navigator.appVersion;
+				//可省略
+				var history = navigator.history;
+				//history对象可实现网页的前进后退
+				println(name + "<br/>" + version);
 			}
-			
-			function windowObjDemo2(){
+
+			function windowObjDemo2() {
 				var prol = location.protocol;
 				var text = location.href;
-				println(prol+text);
-				location.href = "http://www.baidu.com";//跳转链接
+				println(prol + text);
+				location.href = "http://www.baidu.com";
+				//跳转链接
+
+			}
+
+			function windowObjDemo3() {
+				var b = confirm("你真的确定要点击吗？");
+				println("b=" + b);
+				setTimeout("alert('time out run')", 4000);
+			}
+
+			function windowObjDemo4() {
+				
+				timeid = setInterval("alert('interval run')", 3000);
+			}
+			function stopTime() {
+				clearInterval(timeid);
 				
 			}
+			
+			function windowMove() {
+				moveTo(40,40);
+				moveBy(20,20);//QQ闪屏效果
+			}
 		</script>
-		
+
 		<!--定义事件源，注册事件关联的动作-->
 		<input type="button" value="演示window中的对象" onclick="windowObjDemo()" />
 		<input type="button" value="演示window中的对象2" onclick="windowObjDemo2()" />
-		
+		<input type="button" value="演示window中的对象3" onclick="windowObjDemo3()" />
+		<input type="button" value="演示window中的对象4" onclick="windowObjDemo4()" />
+		<input type="button" value="停止" onclick="stopTime()" />		
+		<input type="button" value="移动" onclick="windowMove()" />
 	</body>
 </html>
