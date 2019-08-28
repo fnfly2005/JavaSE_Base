@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-BOM&Navigator对象&History对象
+	DOM-Location对象
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -19,10 +20,19 @@
 				var history = navigator.history;//history对象可实现网页的前进后退
 				println(name + "<br/>" +version);
 			}
+			
+			function windowObjDemo2(){
+				var prol = location.protocol;
+				var text = location.href;
+				println(prol+text);
+				location.href = "http://www.baidu.com";//跳转链接
+				
+			}
 		</script>
 		
 		<!--定义事件源，注册事件关联的动作-->
 		<input type="button" value="演示window中的对象" onclick="windowObjDemo()" />
+		<input type="button" value="演示window中的对象2" onclick="windowObjDemo2()" />
 		
 	</body>
 </html>
