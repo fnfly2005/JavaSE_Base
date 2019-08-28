@@ -2,24 +2,24 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<!--
-	DOM-BOM&Navigator对象&History对象
-	DOM-Location对象
-	DOM-window常见方法一
-	DOM-window常见方法二
+		DOM-练习-广告弹窗
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 		<title>Add Title Here</title>
 	</head>
 	<body>
-		<h1>
-			特价大优惠！
-		</h1>
-		<h2>什么东西便宜了呢？</h2>
-		<h1>你猜！</h1>
+
 		<script type="text/javascript">
-			setTimeout("close()",5000);
-			setInterval("focus()",1000);//设置焦点
+		/*
+		 * 演示弹窗广告效果
+		 * 页面加载完就执行
+		 * 在当前页面定义脚本
+		 */
+		
+		onload = function(){
+			open("ad.htm","_blank","heigth=400,width=400,status=no,toolbar=no,location=no");
+		}
 		</script>
 	</body>
 </html>
