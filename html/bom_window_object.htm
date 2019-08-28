@@ -5,6 +5,7 @@
 	DOM-BOM&Navigator对象&History对象
 	DOM-Location对象
 	DOM-window常见方法一
+	DOM-window常见方法二
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -43,6 +44,7 @@
 				
 				timeid = setInterval("alert('interval run')", 3000);
 			}
+			
 			function stopTime() {
 				clearInterval(timeid);
 				
@@ -52,6 +54,11 @@
 				moveTo(40,40);
 				moveBy(20,20);//QQ闪屏效果
 			}
+			
+			function windowOpen() {
+				open("ad.htm","_blank","height=200,width=400,status=yes,toolbar=no,menubar=no,location=no");
+			}//打开自动关闭的广告页面
+			
 		</script>
 
 		<!--定义事件源，注册事件关联的动作-->
@@ -60,6 +67,6 @@
 		<input type="button" value="演示window中的对象3" onclick="windowObjDemo3()" />
 		<input type="button" value="演示window中的对象4" onclick="windowObjDemo4()" />
 		<input type="button" value="停止" onclick="stopTime()" />		
-		<input type="button" value="移动" onclick="windowMove()" />
+		<input type="button" value="打开" onclick="windowOpen()" />
 	</body>
 </html>
