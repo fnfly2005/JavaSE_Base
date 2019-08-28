@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-window常见事件
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+		
+			onunload = function(){
+				alert("onunload run");
+			}//关闭触发事件
+			
+			onload = function(){
+				alert("onload run");
+				window.status="啊！，加载完毕啦";//状态栏属性
+			}//加载完触发事件
+			
+			onbeforeunload = function(){
+				alert("onbeforeunload run");
+			}//关闭前触发事件
+		</script>
+	</body>
+</html>
