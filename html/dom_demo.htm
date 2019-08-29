@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+		DOM-document获取节点byId
+		DOM-document获取节点byName
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function getNodeDemo(){
+			/*
+			 * 获取页面中的节点
+			 * 思路
+			 * 通过document对象完成，因为div节点有id属性，可以通过id属性来获取
+			 */
+			var divNode = document.getElementById("divid");
+			
+			//节点有三个属性：节点名称、节点类型、节点值
+			//alert(divNode.nodeName+":"+divNode.nodeType+":"+divNode.nodeValue);
+			
+			 //获取div节点中的文本
+			 var text = divNode.innerHTML;
+			 //alert(text);
+			 
+			 //改变div中的文本
+			 divNode.innerHTML = "哈哈，文本被我改掉了".fontcolor("red");
+		}
+		function getNodeDemo2(){
+			var node = document.getElementsByName("user")[0];
+			alert(node.value);
+		}
+		</script>
+		<input type="button" value="演示document对象获取节点" onclick="getNodeDemo2()"/>
+		<div id="divid">这是一个div区域</div>
+		<input type="text" name="user" value="haha"/>
+	</body>
+</html>
