@@ -2,8 +2,10 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<!--
-		DOM-document获取节点byId
-		DOM-document获取节点byName
+	DOM-document获取节点byId
+	DOM-document获取节点byName
+	DOM-document获取节点byTagName一
+	DOM-document获取节点byTagName二
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -11,44 +13,72 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-		function getNodeDemo(){
-			/*
-			 * 获取页面中的节点
-			 * 思路
-			 * 通过document对象完成，因为div节点有id属性，可以通过id属性来获取
-			 */
-			var divNode = document.getElementById("divid");
-			
-			//节点有三个属性：节点名称、节点类型、节点值
-			//alert(divNode.nodeName+":"+divNode.nodeType+":"+divNode.nodeValue);
-			
-			 //获取div节点中的文本
-			 var text = divNode.innerHTML;
-			 //alert(text);
-			 
-			 //改变div中的文本
-			 divNode.innerHTML = "哈哈，文本被我改掉了".fontcolor("red");
-		}
-		
-		function getNodeDemo2(){
-			var node = document.getElementsByName("user")[0];
-			alert(node.value);
-		}
-		
-		//获取超链接节点对象，演示getElementsByTagName方法
-		function getNodeDemo3(){
-			var nodes = document.getElementsByTagName("a");
-			for(var x=0;x<nodes.length;x++){
-				nodes[x].target="_blank"
+			function getNodeDemo() {
+				/*
+				 * 获取页面中的节点
+				 * 思路
+				 * 通过document对象完成，因为div节点有id属性，可以通过id属性来获取
+				 */
+				var divNode = document.getElementById("divid");
+
+				//节点有三个属性：节点名称、节点类型、节点值
+				//alert(divNode.nodeName+":"+divNode.nodeType+":"+divNode.nodeValue);
+
+				//获取div节点中的文本
+				var text = divNode.innerHTML;
+				//alert(text);
+
+				//改变div中的文本
+				divNode.innerHTML = "哈哈，文本被我改掉了".fontcolor("red");
 			}
-			
-		}
-		
+
+			function getNodeDemo2() {
+				var node = document.getElementsByName("user")[0];
+				alert(node.value);
+			}
+
+			//获取超链接节点对象，演示getElementsByTagName方法
+			function getNodeDemo3() {
+				var nodes = document.getElementsByTagName("a");
+				for (var x = 0; x < nodes.length; x++) {
+					nodes[x].target = "_blank"
+				}
+
+			}
+
+			/*
+			 * 对于页面中的超链接，本地打开在当前页面打开，新窗口打开在新页面打开
+			 * 要获取其中被操作的超链接对象
+			 * 通过document拿到的是页面中所有的超链接节点
+			 * 只想获取一部分该怎么办？
+			 * 只要获取到被操作的超链接所属的节点即可
+			 *
+			 * 在通过这个节点获取到它里面所有的超链接节点
+			 */
+			function getNodeDemo4() {
+				//获取超链接所属的div节点
+				var divNode = document.getElementById("newslink")
+
+				//通过对div对象方法的查找发现它也具备getElementsByTagName方法
+				//所有容器型标签都具备这个方法，在该标签范围内获取指定名称的标签
+				var aNodes = divNode.getElementsByTagName("a");
+				for (var x = 0; x < aNodes.length; x++) {
+					aNodes[x].target = "_blank"
+				}
+			}
+
 		</script>
-		<input type="button" value="演示document对象获取节点" onclick="getNodeDemo3()"/>
-		<div id="divid">这是一个div区域</div>
+		<input type="button" value="演示document对象获取节点" onclick="getNodeDemo4()"/>
+		<div id="divid">
+			这是一个div区域
+		</div>
 		<input type="text" name="user" value="haha"/>
-		<a href="http://www.baidu.com">百度搜索1</a>
-		<a href="http://www.baidu.com">百度搜索2</a>
+		<hr />
+		<a href="http://www.baidu.com">本地打开1</a>
+		<a href="http://www.baidu.com">本地打开2</a>
+		<div id="newslink">
+			<a href="http://www.baidu.com">新窗口打开1</a>
+			<a href="http://www.baidu.com">新窗口打开2</a>
+		</div>
 	</body>
 </html>
