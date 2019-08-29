@@ -29,13 +29,26 @@
 			 //改变div中的文本
 			 divNode.innerHTML = "哈哈，文本被我改掉了".fontcolor("red");
 		}
+		
 		function getNodeDemo2(){
 			var node = document.getElementsByName("user")[0];
 			alert(node.value);
 		}
+		
+		//获取超链接节点对象，演示getElementsByTagName方法
+		function getNodeDemo3(){
+			var nodes = document.getElementsByTagName("a");
+			for(var x=0;x<nodes.length;x++){
+				nodes[x].target="_blank"
+			}
+			
+		}
+		
 		</script>
-		<input type="button" value="演示document对象获取节点" onclick="getNodeDemo2()"/>
+		<input type="button" value="演示document对象获取节点" onclick="getNodeDemo3()"/>
 		<div id="divid">这是一个div区域</div>
 		<input type="text" name="user" value="haha"/>
+		<a href="http://www.baidu.com">百度搜索1</a>
+		<a href="http://www.baidu.com">百度搜索2</a>
 	</body>
 </html>
