@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-节点操作-创建并添加一
+	DOM-节点操作-创建并添加二
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -47,11 +48,36 @@
 				oDivNode.appendChild(oTextNode);
 			}
 			
-			function delNode(){
+			function crtAndAdd2(){
+				/*
+				 * 需求：在div_1中创建一个按钮节点
+				 */
+				//创建一个按钮节点
+				var obuttenNode = document.createElement("input");
+				obuttenNode.type = "button";
+				obuttenNode.value = "一个新按钮";
 				
+				//2. 获取div_1节点
+				var oDivNode = document.getElementById("div_1");
+				
+				//3. 将文本节点条件到div_1节点中
+				oDivNode.appendChild(obuttenNode);				
+			}
+			
+			function crtAndAdd3(){
+				/*
+				 * 另一种方式完成添加节点
+				 * 其实使用容器小标签中的一个属性 innerHTML
+				 * 这个属性可以设置html文本
+				 */
+				//1. 获取div_1节点
+				var oDivNode = document.getElementById("div_1");
+				
+				//oDivNode.innerHTML = "<input type='button' value='有个按钮'/>";
+				oDivNode.innerHTML = "<a href='http://www.baidu.com/'>有个超链接</a>"
 			}
 		</script>
-		<input type="button" value="创建并添加节点" onclick="crtAndAdd()"/>
+		<input type="button" value="创建并添加节点" onclick="crtAndAdd3()"/>
 		<input type="button" value="删除节点" onclick="delNode()"/>
 		<input type="button" value="修改节点" onclick="updateNode()"/>
 		<div id="div_1">
