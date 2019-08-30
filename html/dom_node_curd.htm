@@ -5,6 +5,7 @@
 	DOM-节点操作-创建并添加一
 	DOM-节点操作-创建并添加二
 	DOM-节点操作-删除节点
+	DOM-节点操作-替换&克隆节点
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -88,10 +89,35 @@
 				//一般使用removeChild方法，删除子节点
 				oDivNode.parentNode.removeChild(oDivNode);
 			}
+			
+			function updateNode(){
+				/*
+				 * 用div_3节点替换div_1节点
+				 * 获取div_3和div_1
+				 * 使用replaceNode进行替换
+				 */
+				var oDivNode_1 = document.getElementById("div_1");
+				var oDivNode_3 = document.getElementById("div_3");
+				
+				oDivNode_1.parentNode.replaceChild(oDivNode_3,oDivNode_1);
+			}
+			
+			function cloneDemo(){
+				/*
+				 * 希望用div_3替换div_1,并保留div_3节点
+				 * 其实就是对div_3进行克隆
+				 */
+				var oDivNode_1 = document.getElementById("div_1");
+				var oDivNode_3 = document.getElementById("div_3");
+				var oCopyDiv_3 = oDivNode_3.cloneNode(true);
+				
+				oDivNode_1.parentNode.replaceChild(oCopyDiv_3,oDivNode_1);
+			}
 		</script>
 		<input type="button" value="创建并添加节点" onclick="crtAndAdd3()"/>
 		<input type="button" value="删除节点" onclick="delNode()"/>
 		<input type="button" value="修改节点" onclick="updateNode()"/>
+		<input type="button" value="克隆节点" onclick="cloneDemo()"/>
 		<div id="div_1">
 
 		</div>
