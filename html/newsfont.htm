@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+		DOM-示例-新闻字体一
+		DOM-示例-新闻字体二
+		需求: 新闻字体的大中心样式改变
+		
+		思路:
+		1. 现有新闻数据，并用标签封装
+		2. 定义一些页面样式
+		3. 确定事件源和事件，以及处理方式中被处理的节点
+			事件源：a标签，事件：onclick
+			被处理的节点 div-newstext
+			
+			既然要给超链接加入自定义的事件处理，就要先取消超链接的默认点击效果
+			可以使用给href设置：javascript:void(0) 来完成
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+			/*超链接访问前，访问后样式一致*/
+			a:link,a:visited{
+				color:#0044ff;
+				text-decoration:none;
+			}
+			a:hover{
+				color:#ff8800;
+			}
+			#newstext{
+				width: 500px;
+				border:#00ff00 1px solid;
+				padding:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function changeFont(size){
+			/*
+			 * 定义改变字体的方法
+			 * 既然要对div newstext中的文本字体进行操作
+			 * 必须要先获取div节点对象
+			 */ 
+			var oNewsText = document.getElementById("newstext");
+			oNewsText.style.fontSize=size+"px";
+		}
+		</script>
+		<h1>这是一个新闻标题</h1>
+		<hr />
+		<div>
+		<a href="javascript:void(0)" onclick="changeFont('28')">大字体</a>
+		<a href="javascript:void(0)" onclick="changeFont('16')">中字体</a>
+		<a href="javascript:void(0)" onclick="changeFont('12')">小字体</a>
+		</div>
+		<div id="newstext">
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+		</div>
+	</body>
+</html>
