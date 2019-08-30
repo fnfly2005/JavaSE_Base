@@ -4,6 +4,7 @@
 	<!--
 	DOM-节点操作-创建并添加一
 	DOM-节点操作-创建并添加二
+	DOM-节点操作-删除节点
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -75,6 +76,17 @@
 				
 				//oDivNode.innerHTML = "<input type='button' value='有个按钮'/>";
 				oDivNode.innerHTML = "<a href='http://www.baidu.com/'>有个超链接</a>"
+			}
+			
+			function delNode(){
+				//1. 获取div_2节点
+				var oDivNode = document.getElementById("div_2");
+				
+				//2. 使用div节点的removeNode方法删除,较少用,火狐内无效
+				//oDivNode2.removeNode(true);
+				
+				//一般使用removeChild方法，删除子节点
+				oDivNode.parentNode.removeChild(oDivNode);
 			}
 		</script>
 		<input type="button" value="创建并添加节点" onclick="crtAndAdd3()"/>
