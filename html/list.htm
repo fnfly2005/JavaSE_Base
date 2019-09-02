@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-示例-展开闭合列表一
+	DOM-示例-展开闭合列表二
+	DOM-示例-展开闭合列表三
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+			dl dd {
+				margin: 0px;
+			}
+
+			dl {
+				height: 18px;
+				/*overflow:hidden;*/
+			}
+
+			//预定义一些样式，类选择器，便于给标签进行加载
+			.open {
+				overflow: visible;
+			}
+
+			.close {
+				overflow: hidden;
+			}
+			
+			dl dt{
+				color:#ff8000;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var flag = true;
+			function list0() {
+				/*
+				 * 列表展开闭合效果
+				 * 思路：：
+				 * 无非就是将dl属性的overflow的值改成visiable即可
+				 * 先获取dl节点
+				 * 改变该节点的style.overflow属性
+				 */
+				var DlNode = document.getElementsByTagName("dl")[0];
+				DlNode.style.overflow = "visible";
+
+				if (flag) {
+					DlNode.style.overflow = "visible";
+					flag = false;
+				} else {
+					DlNode.style.overflow = "hidden";
+					flag = true;
+				}
+			}
+
+			function list1() {
+				//重新定义list 降低js和css的耦合性
+
+				var DlNode = document.getElementsByTagName("dl")[0];
+
+				if (DlNode.className == "close") {
+					DlNode.className = "open";
+				} else {
+					DlNode.className = "close";
+				}
+
+			}
+
+			function list2(node) {
+				//多个列表情况
+				var DlNode = node.parentNode;
+				if (DlNode.className == "close") {
+					DlNode.className = "open";
+				} else {
+					DlNode.className = "close";
+				}
+
+			}
+
+			function list3(node) {
+				/*
+				 * 在多个列表下，一次只需要展开一个列表，其他列表都关闭
+				 * 怎么保证开一个，而关其他呢？
+				 * 思路:
+				 * 1.获取所有dl节点
+				 * 2.遍历这些节点，只对当前的dl进行展开或者闭合操作，其他节点都进行闭合操作
+				 */
+
+				var DlNode = node.parentNode;
+
+				var collDlNodes = document.getElementsByTagName("dl");
+
+				for (var x = 0; x < collDlNodes.length; x++) {
+					if (collDlNodes[x] == DlNode) {
+						if (DlNode.className == "close") {
+							DlNode.className = "open";
+						} else {
+							DlNode.className = "close";
+						}
+					}else{
+						collDlNodes[x].className="close";
+					}
+				}
+			}
+		</script>
+		<!--
+		思路：
+		1.标签封装数据 html
+		2.定义样式 css
+		3.明确事件源，事件，以及要处理的节点，dom
+		4.明确具体的操作方式，其实就是事件的处理内容 js
+		-->
+		<dl class="close">
+			<dt onclick="list3(this)">
+				显示条目一
+			</dt>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+		</dl>
+		<dl class="close">
+			<dt onclick="list3(this)">
+				显示条目二
+			</dt>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+		</dl>
+		<dl class="close">
+			<dt onclick="list3(this)">
+				显示条目三
+			</dt>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+			<dd>
+				展开列表内容
+			</dd>
+		</dl>
+	</body>
+</html>
