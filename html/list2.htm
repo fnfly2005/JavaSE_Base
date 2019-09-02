@@ -2,57 +2,92 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<!--
-	DOM 示例-好友菜单二
+	DOM-示例-好友菜单二
 	DOM-示例-好友菜单一
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 		<title>Add Title Here</title>
 		<style type="text/css">
-		/*
-		 * 对表格中的ul 进行样式定义
-		 * 1.去重无序列表的样式
-		 * 2.对表格框线进行定义
-		 */
-			table ul{
+			/*
+			 * 对表格中的ul 进行样式定义
+			 * 1.去重无序列表的样式
+			 * 2.对表格框线进行定义
+			 */
+			table ul {
 				list-style: none;
-				margin:0px;
-				background-color:#26e356;
+				margin: 0px;
+				background-color: #26e356;
+				display: none;
+				padding: 0px;
 			}
-			
-			table{
-				border:#8080ff 1px solid;
-				width:120px;
+
+			table {
+				border: #8080ff 1px solid;
+				width: 120px;
 			}
-			
-			table td{
-				border:#8080ff 1px solid;
-				background-color:#f3c98f;
+
+			table td {
+				border: #8080ff 1px solid;
+				background-color: #f3c98f;
 			}
-			
-			table td a:link,table td a:visited{
-				color:#1f6df1;
+
+			table td a:link, table td a:visited {
+				color: #1f6df1;
 				text-decoration: inherit;
 			}
-			
-			/*预定一些样式*/
-			.open{
-				display:block;
+
+			table td a:hover {
+				color: #df4011;
 			}
-			.close{
-				display:none;
+
+			/*预定一些样式*/
+			.open {
+				display: block;
+			}
+			.close {
+				display: none;
 			}
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript"></script>
+		<script type="text/javascript">
+			function list(node) {
+				/*获取被操作的节点ul
+				 * 先通过事件源超链接标签获取其父节点td，再通过父节点获取url节点
+				 */
+
+				var TdNode = node.parentNode;
+				var UlNode = TdNode.getElementsByTagName("ul")[0];
+				//alert(UlNode.nodeName); 验证
+
+				//获取表格中所有ul
+				//获取表格节点对象
+				var TabNode = document.getElementById("goodlist");
+				
+				var collUlNodes = TabNode.getElementsByTagName("ul");
+
+				for (var x = 0; x < collUlNodes.length; x++) {
+					if (collUlNodes[x] == UlNode) {
+						if (UlNode.className == "open") {
+							UlNode.className = "close";
+						} else {
+							UlNode.className = "open";
+						}
+					}else {
+						collUlNodes[x].className = "close";
+					} 
+				}
+
+			}
+		</script>
 		<!--
 		完成一个好友菜单
 		展开闭合效果
 		-->
-		<table>
+		<table id="goodlist">
 			<tr>
-				<td><a href="">好友菜单</a>
+				<td><a href="javascript:void(0)" onclick="list(this)">好友菜单</a>
 				<ul>
 					<li>
 						一个好友
@@ -69,7 +104,7 @@
 				</ul></td>
 			</tr>
 			<tr>
-				<td><a href="">好友菜单</a>
+				<td><a href="javascript:void(0)" onclick="list(this)">好友菜单</a>
 				<ul>
 					<li>
 						一个好友
@@ -86,7 +121,7 @@
 				</ul></td>
 			</tr>
 			<tr>
-				<td><a href="">好友菜单</a>
+				<td><a href="javascript:void(0)" onclick="list(this)">好友菜单</a>
 				<ul>
 					<li>
 						一个好友
@@ -103,7 +138,7 @@
 				</ul></td>
 			</tr>
 			<tr>
-				<td><a href="">好友菜单</a>
+				<td><a href="javascript:void(0)" onclick="list(this)">好友菜单</a>
 				<ul>
 					<li>
 						一个好友
