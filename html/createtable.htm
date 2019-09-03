@@ -4,6 +4,7 @@
 	<!--
 	DOM-示例-创建表格
 	DOM-示例-创建表格-使用表格对象
+	DOM-示例-创建表格-指定行列
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -62,9 +63,12 @@
 				//1.创建表格节点
 				var TabNode = document.createElement("table");
 
-				for (var x=1; x <= 5; x++) {
+				var rowVal = parseInt(document.getElementsByName("rownum")[0].value);
+				var colVal = parseInt(document.getElementsByName("colnum")[0].value);
+				
+				for (var x=1; x <= rowVal; x++) {
 					var TrNode = TabNode.insertRow();
-					for (var y=1; y <= 6; y++) {
+					for (var y=1; y <= colVal; y++) {
 						var TdNode = TrNode.insertCell();
 						TdNode.innerHTML = x + "--" + y;
 					}
@@ -77,6 +81,7 @@
 			}
 		</script>
 
+		行：<input type="text" name="rownum" />列：<input type="text" name="colnum" />
 		<input type="button" value="创建表格" name="crtBut" onclick="crtTable2()"/>
 		<hr/>
 		<div>
