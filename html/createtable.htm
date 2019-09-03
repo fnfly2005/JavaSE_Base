@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-示例-创建表格
+	DOM-示例-创建表格-使用表格对象
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -48,12 +49,38 @@
 				document.getElementsByTagName("div")[0].appendChild(TabNode);
 
 			}
+
+			function crtTable2() {
+				/*
+				* 上面的方法麻烦
+				* 既然操作的是表格，那么最方便的方式就是使用表格节点对象的方法来完成
+				*
+				* 表格是由行组成，表格节点对象中 insertRow方法就完成了创建行并添加的动作
+				*
+				* 行是由单元格组成，通过tr节点对象中 insertCell方法就完成了
+				*/
+				//1.创建表格节点
+				var TabNode = document.createElement("table");
+
+				for (var x=1; x <= 5; x++) {
+					var TrNode = TabNode.insertRow();
+					for (var y=1; y <= 6; y++) {
+						var TdNode = TrNode.insertCell();
+						TdNode.innerHTML = x + "--" + y;
+					}
+				}
+
+				//将表格节点添加到DIV中
+				document.getElementsByTagName('div')[0].appendChild(TabNode);
+
+				document.getElementsByName("crtBut")[0].disabled = true;
+			}
 		</script>
 
-		<input type="button" value="创建表格" onclick="crtTable()"/>
+		<input type="button" value="创建表格" name="crtBut" onclick="crtTable2()"/>
 		<hr/>
 		<div>
-			
+
 		</div>
 	</body>
 </html>
