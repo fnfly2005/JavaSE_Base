@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-示例-创建表格
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+			@import url(table.css);
+		</style>
+	</head>
+	<body>
+		<!--
+		在页面中创建一个5行6列的表格
+		1.事件源 比如按钮
+		2.必须有一个生成的表格节点存储位置
+		-->
+		<script type="text/javascript">
+			function crtTable() {
+				/*
+				* 思路：
+				* 可以通过之前学习过的Element创建元素的形式来完成
+				*/
+				//1.创建表格节点
+				var TabNode = document.createElement("table");
+
+				//2.创建tBody节点
+				var TboNode = document.createElement("tbody");
+
+				//3.创建行节点tr
+				var TrNode = document.createElement("tr");
+
+				//4.创建单元格节点td
+				var TdNode = document.createElement("td");
+
+				TdNode.innerHTML = "这是单元格";
+
+				//进行指定层次的节点添加
+
+				TrNode.appendChild(TdNode);
+
+				TboNode.appendChild(TrNode);
+
+				TabNode.appendChild(TboNode);
+
+				document.getElementsByTagName("div")[0].appendChild(TabNode);
+
+			}
+		</script>
+
+		<input type="button" value="创建表格" onclick="crtTable()"/>
+		<hr/>
+		<div>
+			
+		</div>
+	</body>
+</html>
