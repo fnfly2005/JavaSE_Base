@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-示例-行颜色间隔显示并高亮一
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<link rel="stylesheet" type="text/css" href="table.css" />
+		<style type="text/css">
+			.one {
+				background-color: #e1e16a;
+			}
+
+			.two {
+				background-color: #75f094;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function trColor() {
+				/*
+				 * 思路
+				 * 1.获取表格对象
+				 * 2. 获取被操作的行对象
+				 * 3. 遍历行并给每一行指定样式
+				 */
+
+				var TabNode = document.getElementById("info");
+
+				var collTrNodes = TabNode.rows;
+
+				for (var x = 1; x < collTrNodes.length; x++) {
+					if (x % 2 == 1) {
+						collTrNodes[x].className = "one";
+					} else {
+						collTrNodes[x].className = "two";
+					}
+				}
+
+			}
+
+			onload = function() {
+				trColor();
+			}
+		</script>
+
+		<table id="info">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>地址</th>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>27</td>
+				<td>上海</td>
+			</tr>
+			<tr>
+				<td>小强</td>
+				<td>26</td>
+				<td>北京</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>29</td>
+				<td>广州</td>
+			</tr>
+			<tr>
+				<td>孙八</td>
+				<td>23</td>
+				<td>南京</td>
+			</tr>
+			<tr>
+				<td>二麻子</td>
+				<td>19</td>
+				<td>大连</td>
+			</tr>
+			<tr>
+				<td>犀利姐</td>
+				<td>32</td>
+				<td>青岛</td>
+			</tr>
+			<tr>
+				<td>旺财</td>
+				<td>19</td>
+				<td>深圳</td>
+			</tr>
+			<tr>
+				<td>周琦</td>
+				<td>42</td>
+				<td>铁岭</td>
+			</tr>
+			<tr>
+				<td>毕姥爷</td>
+				<td>18</td>
+				<td>沈阳</td>
+			</tr>
+		</table>
+	</body>
+</html>
