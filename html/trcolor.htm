@@ -4,6 +4,7 @@
 	<!--
 	DOM-示例-行颜色间隔显示并高亮一
 	DOM-示例-行颜色间隔显示并高亮二
+	DOM-示例-表格排序
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -19,6 +20,10 @@
 			}
 			.over {
 				background-color: #8deffa;
+			}
+			th a:link, th a:visited {
+				color: #279bda;
+				text-decoration: none;
 			}
 		</style>
 	</head>
@@ -58,13 +63,62 @@
 			onload = function() {
 				trColor();
 			}
+			var flag = true;
+			function sortTable() {
+				/*
+				 * 思路
+				 * 1. 排序就需要数组，获取需要参与排序的行对象数组
+				 * 2. 对行数组中的每一个行的年龄单元格的数据进行比计较，并完成对象在数组中的位置置换
+				 * 3. 将排好序的数组重新添加回表格
+				 */
 
+				var TabNode = document.getElementById("info");
+
+				var collTrNodes = TabNode.rows;
+
+				//定义一个临时容器，存储需要排序行对象
+				var trArr = [];
+
+				//遍历原行集合，并将需要排序的行对象存储到临时容器
+				for (var x = 1; x < collTrNodes.length; x++) {
+					trArr[x - 1] = collTrNodes[x];
+				}
+
+				//对临时容器拍个序
+				mySort(trArr);
+
+				//将排完序的行对象添加回表格
+				if (flag) {
+					for (var x = 0; x < trArr.length; x++) {
+						trArr[x].parentNode.appendChild(trArr[x]);
+					}
+					flag = false;
+				} else {
+					for (var x = trArr.length - 1; x >= 0; x--) {
+						trArr[x].parentNode.appendChild(trArr[x]);
+					}
+					flag = true;
+				}
+
+				function mySort(arr) {
+					for (var x = 0; x < arr.length - 1; x++) {
+						for (var y = x + 1; y < arr.length; y++) {
+							if (parseInt(arr[x].cells[1].innerHTML) > parseInt(arr[y].cells[1].innerHTML)) {
+								var temp = arr[x];
+								arr[x] = arr[y];
+								arr[y] = temp;
+							}
+						}
+					}
+				}
+
+			}
 		</script>
 
 		<table id="info">
 			<tr>
 				<th>姓名</th>
-				<th>年龄</th>
+				<th><a href="javascript:void(0)" onclick="sortTable()">年龄</a></th>
 				<th>地址</th>
 			</tr>
 			<tr>
@@ -84,7 +138,7 @@
 			</tr>
 			<tr>
 				<td>孙八</td>
-				<td>23</td>
+				<td>6</td>
 				<td>南京</td>
 			</tr>
 			<tr>
