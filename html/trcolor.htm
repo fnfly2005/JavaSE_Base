@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-示例-行颜色间隔显示并高亮一
+	DOM-示例-行颜色间隔显示并高亮二
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -16,6 +17,9 @@
 			.two {
 				background-color: #75f094;
 			}
+			.over {
+				background-color: #8deffa;
+			}
 		</style>
 	</head>
 	<body>
@@ -27,7 +31,7 @@
 				 * 2. 获取被操作的行对象
 				 * 3. 遍历行并给每一行指定样式
 				 */
-
+				var name;
 				var TabNode = document.getElementById("info");
 
 				var collTrNodes = TabNode.rows;
@@ -38,6 +42,15 @@
 					} else {
 						collTrNodes[x].className = "two";
 					}
+
+					collTrNodes[x].onmouseover = function() {
+						name = this.className;
+						this.className = "over";
+					}
+
+					collTrNodes[x].onmouseout = function() {
+						this.className = name;
+					}
 				}
 
 			}
@@ -45,6 +58,7 @@
 			onload = function() {
 				trColor();
 			}
+
 		</script>
 
 		<table id="info">
