@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+	DOM-示例-调查问卷
+	单选按钮演示
+	1.是否参与调查问卷
+	2.性格测试
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+			#contentid {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function showContent(node) {
+				var DivNode = document.getElementById("contentid");
+				
+					if (node.value == 'yes') {
+						DivNode.style.display = "block";
+					}
+					else {
+						DivNode.style.display = "none";
+						
+					}
+					
+				
+
+			}
+		</script>
+		<!--问卷调查-->
+		<div>
+			您要参与问卷调查吗：
+			<input type="radio" name="wenjuan" value="yes" onclick="showContent(this)"/>
+			是
+			<input type="radio" name="wenjuan" value="no" checked="checked" onclick="showContent(this)"/>
+			否
+		</div>
+		<div id="contentid">
+
+			问卷调查内容：
+			<br />
+			您的姓名：
+			<input type="text" />
+			<br />
+			您的邮箱：
+			<input type="text" />
+
+		</div>
+	</body>
+</html>
