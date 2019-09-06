@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+		DOM-示例-下拉菜单-选择颜色
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+		<style type="text/css">
+			.clrclass{
+				height:50px;
+				width:50px;
+				float: left;
+				margin-right: 30px;
+			}
+			#text{
+				clear:left;
+				padding-top: 20px;
+			}
+			
+			.selClass{
+				width:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function changeColor(node){
+				var colorVal = node.style.backgroundColor;
+				
+				document.getElementById("text").style.color=colorVal;
+			}
+			
+			function changeColor2(node){
+				var SelectNode = node;
+				with(SelectNode){
+				var collOptionNodes = options;
+				document.getElementById("text").style.color=options[selectedIndex].style.backgroundColor;	
+				}				
+			}
+		</script>
+		
+		<div class="clrclass" id="clr1" style="background-color: red" onclick="changeColor(this)"></div>
+		<div class="clrclass" id="clr2" style="background-color: green" onclick="changeColor(this)"></div>
+		<div class="clrclass" id="clr3" style="background-color: blue" onclick="changeColor(this)"></div>
+		<div id="text">
+			需要显示效果的文字<br />
+			需要显示效果的文字<br />
+			需要显示效果的文字<br />
+			需要显示效果的文字<br />
+		</div>
+		<hr />
+		<select name="selectColor" onchange="changeColor2(this)" class="selClass">
+			<option style="background-color: black" value="black">选择颜色</option>
+			<option style="background-color: red" value="red">红色</option>
+			<option style="background-color: green" value="green">绿色</option>
+			<option style="background-color: blue" value="blue">蓝色</option>
+		</select>
+	</body>
+</html>
