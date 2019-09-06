@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-示例-调查问卷
+	DOM-示例-性格测试
 	单选按钮演示
 	1.是否参与调查问卷
 	2.性格测试
@@ -14,25 +15,101 @@
 			#contentid {
 				display: none;
 			}
+			#no1ul {
+				list-style: none;
+				margin: 0px;
+			}
+
+			.close {
+				display: none;
+			}
+
+			.open {
+				display: block;
+			}
 		</style>
 	</head>
 	<body>
 		<script type="text/javascript">
 			function showContent(node) {
 				var DivNode = document.getElementById("contentid");
-				
-					if (node.value == 'yes') {
-						DivNode.style.display = "block";
-					}
-					else {
-						DivNode.style.display = "none";
-						
-					}
-					
-				
 
+				if (node.value == 'yes') {
+					DivNode.style.display = "block";
+				} else {
+					DivNode.style.display = "none";
+
+				}
+			}
+
+			function showResult() {
+				//判断是否有答案被选中
+				var No1Nodes = document.getElementsByName("no1");
+
+				var flag = false;
+				var val;
+				for (var x = 0; x < No1Nodes.length; x++) {
+					if (No1Nodes[x].checked) {
+						flag = true;
+
+						val = No1Nodes[x].value;
+						break;
+					}
+				}
+				if (!flag) {
+					document.getElementById("errinfo").innerHTML = "没有任何答案被选中".fontcolor("red");
+					return;
+				}
+
+				if (val >= 1 && val <= 3) {
+					document.getElementById("res_1").className = "open";
+					document.getElementById("res_2").className = "close";
+				} else {
+					document.getElementById("res_1").className = "close";
+					document.getElementById("res_2").className = "open";
+				}
 			}
 		</script>
+		<!--性格测试-->
+		<h2>欢迎您参与性格测试：</h2>
+		<div>
+			<h3>第一题：</h3>
+			<span>您喜欢的水果是什么？</span>
+			<ul id="no1ul">
+				<li>
+					<input type="radio" name="no1" value="1" />
+					葡萄
+				</li>
+				<li>
+					<input type="radio" name="no1" value="2" />
+					西瓜
+				</li>
+				<li>
+					<input type="radio" name="no1" value="3" />
+					苹果
+				</li>
+				<li>
+					<input type="radio" name="no1" value="4" />
+					芒果
+				</li>
+				<li>
+					<input type="radio" name="no1" value="5" />
+					樱桃
+				</li>
+			</ul>
+		</div>
+		<div>
+			<input type="button" value="查看测试结果" onclick="showResult()"/>
+			<span id="errinfo"></span>
+			<div id="res_1" class="close">
+				1-3分：您的性格内向并扭曲 建议。。。
+			</div>
+			<div id="res_2" class="close">
+				4分以上：您的性格外向并分裂 建议。。。
+			</div>
+
+		</div>
+<hr />
 		<!--问卷调查-->
 		<div>
 			您要参与问卷调查吗：
