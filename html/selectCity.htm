@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<!--
+		DOM-示例-下拉菜单-选择城市
+	-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+		<title>Add Title Here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function selectCity(){
+			var collCites = [['选择城市'],
+			['朝阳区','海淀区','东城区','西城区'],
+			['济南','青岛','烟台','威海'],
+			['沈阳','大连','鞍山','抚顺'],
+			['石家庄','保定','邯郸','廊坊']];
+			
+			//var arr ={"beijing":['朝阳区','海淀区','东城区','西城区']}
+			
+			//获取两个下拉菜单对象
+			var SelNode = document.getElementById("selid");
+			var SubSelNode = document.getElementById("subselid");
+			
+			//获取到底选择的是哪个省
+			var pdex = SelNode.selectedIndex
+			
+			//通过角标到容器去获取对应的城市数组
+			var citys = collCites[pdex];
+			
+			//将子菜单中的内容清空一下
+			SubSelNode.length=0
+			
+			//遍历这个数组，并将这个数组的元素封装成option对象，添加到子菜单中
+			for (var x = 0;x<collCites.length-1;x++){
+				var optionNode = document.createElement("option");
+				optionNode.innerHTML = citys[x];
+				SubSelNode.appendChild(optionNode);
+			}
+			
+		}
+		</script>
+		<select id="selid" onchange="selectCity()">
+			<option>选择省市</option>
+			<option value="beijing">北京</option>
+			<option>辽宁</option>
+			<option>河北</option>
+		</select>
+		<select id="subselid">
+			<option>选择城市</option>
+		</select>
+	</body>
+</html>
