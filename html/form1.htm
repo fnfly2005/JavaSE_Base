@@ -3,6 +3,7 @@
 <html>
 	<!--
 	DOM-示例-表单校验-涉及的事件和信息提示方式
+	DOM-示例-表单校验-涉及的正则校验
 	-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -16,8 +17,11 @@
 
 				var name = UserNode.value;
 
+				var reg = new RegExp("^[a-z]{4}$",'i');//i忽略大小写
+				//其他表达方式 var reg = /^[0-9]{4}$/ 不需要转义
+				
 				var SpanNode = document.getElementById("userspan");
-				if (name == "abc") {
+				if (reg.test(name)) {
 					SpanNode.innerHTML = "用户名正确".fontcolor("green");
 				} else {
 					SpanNode.innerHTML = "用户名错误".fontcolor("red");
