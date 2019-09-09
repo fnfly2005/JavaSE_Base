@@ -14,7 +14,7 @@
 			//校验用户名
 			function checkUser() {
 				var UserNode = document.getElementsByName("user")[0];
-
+				var flag;
 				var name = UserNode.value;
 
 				var reg = new RegExp("^[a-z]{4}$",'i');//i忽略大小写
@@ -23,18 +23,39 @@
 				var SpanNode = document.getElementById("userspan");
 				if (reg.test(name)) {
 					SpanNode.innerHTML = "用户名正确".fontcolor("green");
+					flag = true;
 				} else {
 					SpanNode.innerHTML = "用户名错误".fontcolor("red");
+					flag = false;
 				}
 			}
+			
+			function checkForm(){
+				if(checkUser()){
+					return true;				
+				}
+				else{
+					return false;
+				}				
+			}
+			
+			function mySubmit(){
+				var FormNode = document.getElementById("userinfo");
+				
+				FormNode.submit();
+			}
 		</script>
-		<form>
+		<form id="userinfo" onsubmit="return checkForm()">
 			用户名称：
 			<input type="text" name="user" onblur="checkUser()"/>
 			<span id="userspan"></span>
 			<br />
 			输入密码：
 			<input type="text" name="psw"/>
+			<br />
+			<input type="submit" value="提交数据" />
 		</form>
+		<hr />
+		<input type="button" value="我的提交" onclick="mySubmit()" />
 	</body>
 </html>
