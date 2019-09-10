@@ -12,36 +12,75 @@
 	<body>
 		<script type="text/javascript">
 			//校验用户名
-			function checkUser() {
-				var UserNode = document.getElementsByName("user")[0];
+			function check(name, reg, spanId, okinfo, errinfo) {
+				var val = document.getElementsByName(name)[0].value;
 				var flag;
-				var name = UserNode.value;
-
-				var reg = new RegExp("^[a-z]{4}$",'i');//i忽略大小写
-				//其他表达方式 var reg = /^[0-9]{4}$/ 不需要转义
-				
-				var SpanNode = document.getElementById("userspan");
-				if (reg.test(name)) {
-					SpanNode.innerHTML = "用户名正确".fontcolor("green");
+				var SpanNode = document.getElementById(spanId);
+				if (reg.test(val)) {
+					SpanNode.innerHTML = okinfo.fontcolor("green");
 					flag = true;
 				} else {
-					SpanNode.innerHTML = "用户名错误".fontcolor("red");
+					SpanNode.innerHTML = errinfo.fontcolor("red");
 					flag = false;
 				}
+				return flag;
+			}
+
+			function checkUser() {
+				var reg = new RegExp("^[a-z]{4}$", 'i');
+				//i忽略大小写
+				//其他表达方式 var reg = /^[0-9]{4}$/ 不需要转义
+
+				return check("user", reg, "userspan", "用户名正确", "用户名错误");
+			}
+
+			//校验密码
+			function checkPsw() {
+				var reg = /^\d{4}$/;
+				return check("psw",reg,"pswspan","密码格式正确","密码格式错误");
 			}
 			
-			function checkForm(){
-				if(checkUser()){
-					return true;				
-				}
-				else{
-					return false;
-				}				
-			}
-			
-			function mySubmit(){
-				var FormNode = document.getElementById("userinfo");
+			//校验确定密码
+			function checkRepsw() {
+				var flag;
+				//获取密码框内容
+				var pass = document.getElementsByName("psw")[0].value;
 				
+				//获取确认密码框内容
+				var repass = document.getElementsByName("repsw")[0].value;
+				
+				//获取确认密码的span区域
+				var SpanNode = document.getElementById("repswspan");
+				
+				if(pass == repass){
+					SpanNode.innerHTML = "两次密码一致".fontcolor("green");
+					flag = true;
+				}else{
+					SpanNode.innerHTML = "两次密码不一致".fontcolor("red");
+					flag = false;
+				}
+				
+				return flag;
+			}
+			
+			//校验邮件
+			function checkMail() {
+				var reg =/^\w+@\w+(\.\w+)+$/i;
+				return check("mail",reg,"mailspan","邮件地址正确","邮件地址错误");	
+			}
+			
+			//提交事件处理
+			function checkForm() {
+				if (checkUser() && checkPsw() && checkRepsw() && checkMail()) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function mySubmit() {
+				var FormNode = document.getElementById("userinfo");
+
 				FormNode.submit();
 			}
 		</script>
@@ -51,7 +90,16 @@
 			<span id="userspan"></span>
 			<br />
 			输入密码：
-			<input type="text" name="psw"/>
+			<input type="text" name="psw" onblur="checkPsw()"/>
+			<span id="pswspan"></span>
+			<br />
+			确认密码：
+			<input type="text" name="repsw" onblur="checkRepsw()"/>
+			<span id="repswspan"></span>
+			<br />
+			邮件地址：
+			<input type="text" name="mail" onblur="checkMail()"/>
+			<span id="mailspan"></span>
 			<br />
 			<input type="submit" value="提交数据" />
 		</form>
